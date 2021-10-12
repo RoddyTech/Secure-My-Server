@@ -50,8 +50,12 @@
 
 Logging in as root is bad practice it leaves the server open to accidental deletions and other mishapes caused by common user errors. So it is absolutely vital to create a User Account with limited privledges. And For my server I did the following:
 
-* IMAGE HERE
-* IMAGE HERE
+## Creating User
+![](images/adding-user.PNG)
+
+
+## Adding user to sudoer group
+![](images/adding-user-to-sudo.PNG)
 
 These images show the successful creation of a user with now limited privileges
 

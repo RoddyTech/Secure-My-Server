@@ -48,7 +48,7 @@ Logging in as root is bad practice it leaves the server open to accidental delet
 ![](images/adding-user-to-sudo.PNG)
 
 These images show the successful creation of a user with now limited privileges.
-And now that we have a user with limited  privileges the server is more secure.
+And now that we have a user with limited privileges the server is more secure.
 
 
 
@@ -60,7 +60,10 @@ And now that we have a user with limited  privileges the server is more secure.
 
 
 ## Disable Vulnerable and unused services
+Making sure that unsecure services like Telnet are disabled on the server.
 
+### disabling Telnet: 
+Cybersecurity Student enrolled at Penn Cybersecurity Bootcamp | With a passion for learning new techniques relating to Cyber Security ;{}
 
 
 ## Acknowledgments

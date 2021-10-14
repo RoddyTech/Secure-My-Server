@@ -51,9 +51,39 @@ These images show the successful creation of a user with now limited privileges.
 And now that we have a user with limited privileges the server is more secure.
 
 
+## Secure SSH: :closed_lock_with_key:
+SSH, or Secure Shell, is a remote administration protocol that allows users securely control and modify their remote servers over the Internet. And With it, you can feel risk-free and worry-free to login to a remote computer, to execute commands in another machine, and to move files between two separate machines over the same network. But their are ways to make SSH even more secure. And for my server i configured the following:
 
-## Secure SSH
+### Making a Backup:
+First, before making major changes i back up the configuration file.
 
+``` cp /etc/ssh/sshd_config ~/sshd_config_original ```
+
+### Preventing Empty Passwords:
+ ``` nano /etc/ssh/sshd_config ```
+ 
+Find PermitEmptyPasswords. Uncomment it, and replace the yes value with no:
+
+``` PermitEmptyPasswords no ```
+
+### Preventing root login:
+``` nano /etc/ssh/sshd_config ```
+
+``` PermitRootLogin no ```
+
+### Key Based Authentication:
+uses asymmetric cryptography. That means there are two keys, different but mathematically related to each other. One is private and never sent across the network. The other is public and may be transferred across the network. Because the keys are related, they can be used to confirm identities—identities such as SSH authentication attempts.
+
+You'll need to generate the key pair on the local SSH client computer and then transfer the public key across the network to the destination SSH server. In other words, the keys will identify you on your admin workstation. Once this configuration is in place, you are no longer challenged for a password when you establish an SSH connection.
+
+### Steps:
+
+### generating a key pair:
+
+First you have to generate a keypair on your local machine:
+``` ssh-keygen ```
+
+The keys are stored in your home directory in a hidden directory named .ssh, and the default key names are id_rsa (private key) and id_rsa.pub (public key).
 
 
 ## Firewalls

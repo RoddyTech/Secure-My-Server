@@ -81,12 +81,17 @@ You'll need to generate the key pair on the local SSH client computer and then t
 ### generating a key pair:
 
 First you have to generate a keypair on your local machine:
+
 ``` ssh-keygen ```
 
+> Note:
 The keys are stored in your home directory in a hidden directory named .ssh, and the default key names are id_rsa (private key) and id_rsa.pub (public key).
 
+### Copying Public key over:
 
-## Firewalls
+``` ssh-copy-id -i ~/.ssh/tatu-key-ecdsa user@host ```
+
+## Firewalls: :fire:
 
 
 ## Disable Vulnerable and unused services

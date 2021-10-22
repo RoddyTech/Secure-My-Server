@@ -1,12 +1,11 @@
 <h1 align="center"> Secure My Server </h1> <br>
 <p align="center">
-  <a href="https://gitpoint.co/">
-    <img alt="GitPoint" title="GitPoint" src="https://cdn.freebiesupply.com/logos/thumbs/2x/ubuntu-icon-logo.png" width="450">
+    <img src="https://www.downloadclipart.net/large/database-server-transparent-png.png" width="450"/>
   </a>
 </p>
 
 <h1 align="center">Introduction:</h1>
-
+<p> Most systems have some type of confidential data that needs to be protected. They hold financial information, personal photos, trade secrets, social security numbers, etc. To safeguard this data, we need to secure our important Linux systems. But how do we properly harden a Linux system? To protect against malicious actors who want to steal our precious data. If you are curious about that then this is the project for you. In this project, I will be detailing the process of hardening a Linux server. Deployed on my Local Network and i will be detailing the tools and configurations used to harden the server. For which you can apply to your very own server. </p>
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->

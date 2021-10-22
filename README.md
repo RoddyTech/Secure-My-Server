@@ -16,7 +16,7 @@
 - Users
 - Secure SSH
 - Firewalls
-- Disable Vulnerable and Unused services
+- Disable Vulnerable and Unused services/ports
 - Isolation(Docker)
 
 
@@ -54,7 +54,7 @@ And now that we have a user with limited privileges the server is more secure.
 SSH, or Secure Shell, is a remote administration protocol that allows users securely control and modify their remote servers over the Internet. And With it, you can feel risk-free and worry-free to login to a remote computer, to execute commands in another machine, and to move files between two separate machines over the same network. But their are ways to make SSH even more secure. And for my server i configured the following:
 
 ### Making a Backup:
-First, before making major changes i back up the configuration file.
+First, before making major changes i backed up the configuration file.
 
 ``` cp /etc/ssh/sshd_config ~/sshd_config_original ```
 
@@ -102,11 +102,23 @@ Now you have to transfer the public key across the network to the server.
 ## Firewalls: :fire:
 
 
-## Disable Vulnerable and unused services
-Making sure that unsecure services like Telnet are disabled on the server.
+## Disable Vulnerable and unused services and ports
+It is important that unsecure services and unused services/port are disabled on the server. Because the fewer ports and vulnerable services that that are open and running on the server. The more secure the server actually is. 
+
+### finding open ports and unused services: 
+
+``` sudo ss -atpu ```
+
+When you find unused services like "postfix" for example. You want to disable or remove the said service and you do that by.
+
+``` sudo systemctl remove <service> ```
+
+And
+
+``` sudo apt remove ```
 
 ### disabling Telnet: 
-Cybersecurity Student enrolled at Penn Cybersecurity Bootcamp | With a passion for learning new techniques relating to Cyber Security ;{}
+
 
 
 ## Acknowledgments

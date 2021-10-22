@@ -101,6 +101,9 @@ Now you have to transfer the public key across the network to the server.
 
 ## Firewalls: :fire:
 
+<p align="center">
+  <img src = "https://image.flaticon.com/icons/png/512/811/811683.png" width=250>
+</p>
 
 ## Disable Vulnerable and unused services and ports
 It is important that unsecure services and unused services/port are disabled on the server. Because the fewer ports and vulnerable services that that are open and running on the server. The more secure the server actually is. 

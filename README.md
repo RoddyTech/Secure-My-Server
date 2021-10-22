@@ -97,7 +97,7 @@ The keys are stored in your home directory in a hidden directory named .ssh, and
 
 Now you have to transfer the public key across the network to the server.
 
-``` ssh-copy-id <username>@<host> ```
+``` ssh-copy-id -i ~/.ssh/id_rsa.pub <username>@<host> ```
 
 ## Firewalls: :fire:
 

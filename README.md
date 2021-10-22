@@ -70,8 +70,15 @@ Find PermitEmptyPasswords. Uncomment it, and replace the yes value with no:
 
 ``` PermitRootLogin no ```
 
+### Maximum authentication attempts
+ ``` nano /etc/ssh/sshd_config ```
+ 
+To protect against brute-force attacks on the password of a user, limit the number of attempts. This can be done with the MaxAuthTries setting.
+
+``` MaxAuthTries 3 ```
+
 ### Key Based Authentication:
-uses asymmetric cryptography. That means there are two keys, different but mathematically related to each other. One is private and never sent across the network. The other is public and may be transferred across the network. Because the keys are related, they can be used to confirm identities—identities such as SSH authentication attempts.
+Key Based Authenication uses asymmetric cryptography. That means there are two keys, different but mathematically related to each other. One is private and never sent across the network. The other is public and may be transferred across the network. Because the keys are related, they can be used to confirm identities—identities such as SSH authentication attempts. And this process is much safer and less prone to brute-force attacks. Disable PasswordAuthentication to force users to use keys.
 
 You'll need to generate the key pair on the local SSH client computer and then transfer the public key across the network to the destination SSH server. In other words, the keys will identify you on your admin workstation. Once this configuration is in place, you are no longer challenged for a password when you establish an SSH connection.
 
@@ -79,7 +86,7 @@ You'll need to generate the key pair on the local SSH client computer and then t
 
 ### generating a key pair:
 
-First you have to generate a keypair on your local machine:
+First you have to generate a keypair on your local machine.
 
 ``` ssh-keygen ```
 
@@ -88,7 +95,9 @@ The keys are stored in your home directory in a hidden directory named .ssh, and
 
 ### Copying Public key over:
 
-``` ssh-copy-id -i ~/.ssh/tatu-key-ecdsa user@host ```
+Now you have to transfer the public key across the network to the server.
+
+``` ssh-copy-id <username>@<host> ```
 
 ## Firewalls: :fire:
 

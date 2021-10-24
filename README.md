@@ -65,17 +65,21 @@ Find PermitEmptyPasswords. Uncomment it, and replace the yes value with no:
 
 ``` PermitEmptyPasswords no ```
 
+![](images/emptypassword.PNG)
+
 ### Preventing root login:
-``` nano /etc/ssh/sshd_config ```
 
 ``` PermitRootLogin no ```
 
+![](images/root-login.PNG)
+
 ### Maximum authentication attempts
- ``` nano /etc/ssh/sshd_config ```
  
 To protect against brute-force attacks on the password of a user, limit the number of attempts. This can be done with the MaxAuthTries setting.
 
 ``` MaxAuthTries 3 ```
+
+![](images/maxauth.PNG)
 
 ### Key Based Authentication:
 Key Based Authenication uses asymmetric cryptography. That means there are two keys, different but mathematically related to each other. One is private and never sent across the network. The other is public and may be transferred across the network. Because the keys are related, they can be used to confirm identities—identities such as SSH authentication attempts. And this process is much safer and less prone to brute-force attacks. Disable PasswordAuthentication to force users to use keys.
@@ -86,9 +90,11 @@ You'll need to generate the key pair on the local SSH client computer and then t
 
 ### generating a key pair:
 
-First you have to generate a keypair on your local machine.
+First i generated a keypair on my local server.
 
 ``` ssh-keygen ```
+
+![](images/sshkeygen.PNG)
 
 > Note:
 The keys are stored in your home directory in a hidden directory named .ssh, and the default key names are id_rsa (private key) and id_rsa.pub (public key).
@@ -110,19 +116,25 @@ It is important that unsecure services and unused services/port are disabled on 
 
 ### finding open ports and unused services: 
 
-``` sudo ss -atpu ```
+to find unused services running on open ports the Command:
 
-When you find unused services like "postfix" for example. You want to disable or remove the said service and you do that by.
+``` sudo ss -atpu ```
+> Note:
+> "ss" is a utility to investigate sockets.
+
+And when i ran this command did not find anything that needed to be removed.
+
+But when you find unused services like "postfix" for example. You want to disable or remove the said service and you do that by.
 
 ``` sudo systemctl remove <service> ```
 
 And
 
-``` sudo apt remove ```
+``` sudo apt remove <service> ```
 
-### disabling Telnet: 
+### removing Telnet: 
 
-
+Telnet was installed on my server and i planned to remove it because. The "Telnet" protocol was designed long back, even before the TCP/IP protocol suite. And "Telnet" was initially designed for the computer networks of 1960’s and 1970’s, when networks were considered safe. TELNET traffic between a TELNET client and TELNET server is not encrypted, unless a third-party encryption tool or protocol is used. so i discided to remove it.
 
 ## Acknowledgments
 

@@ -34,6 +34,7 @@
 ### This cronjob will update the server every Friday at 12 PM:
 ``` 0 0 * * FRI apt-get update && apt-get upgrade ```
 
+![](images/cronjob.PNG)
 
 ## Users: :exclamation:
 
@@ -88,7 +89,7 @@ You'll need to generate the key pair on the local SSH client computer and then t
 
 ### Steps:
 
-### generating a key pair:
+### Generating a key pair:
 
 First i generated a keypair on my local server.
 
@@ -111,10 +112,26 @@ Now you have to transfer the public key across the network to the server.
   <img src = "https://image.flaticon.com/icons/png/512/811/811683.png" width=250>
 </p>
 
-## Disable Vulnerable and unused services and ports
+
+### UFW
+
+Having a host-based firewall helps to monitor and control traffic going in and out of a single host, such as a server or a workstation. And adding host-based firewall helps to protect a sever my server in this case from untrusted external devices attempting to attack through open ports/services. So for a host based firewall I decide to use UFW the Uncomplicated Firewall.
+
+### Limiting SSH Access 
+Limiting who can attempt to ssh to the server really important for the secure of the server. Helping to prevent brute force attacks and among other password attacks.
+
+Command: 
+
+``` sudo ufw allow from 10.0.2.19 proto tcp to any port 22 ```
+
+![](images/ssh-single-ip.PNG)
+
+
+
+## Disable Vulnerable and unused services and ports:sudo 
 It is important that unsecure services and unused services/port are disabled on the server. Because the fewer ports and vulnerable services that that are open and running on the server. The more secure the server actually is. 
 
-### finding open ports and unused services: 
+### Finding open ports and unused services: 
 
 to find unused services running on open ports the Command:
 
@@ -132,10 +149,14 @@ And
 
 ``` sudo apt remove <service> ```
 
-### removing Telnet: 
+### Removing Telnet: 
 
-Telnet was installed on my server and i planned to remove it because. The "Telnet" protocol was designed long back, even before the TCP/IP protocol suite. And "Telnet" was initially designed for the computer networks of 1960’s and 1970’s, when networks were considered safe. TELNET traffic between a TELNET client and TELNET server is not encrypted, unless a third-party encryption tool or protocol is used. so i discided to remove it.
+Telnet was installed on my server and i planned to remove it because. The "Telnet" protocol was designed long back, even before the TCP/IP protocol suite. initially being designed for the computer networks of 1960’s and 1970’s. So due to its age it was not exactly design with security in mind. So traiffic between telnet client and server is unencrypted, unless a third-party encryption tool or protocol is used. so i decided to remove it.
 
-## Acknowledgments
+Command: 
 
-Enabling a firewall on a server is good way control the traffick 
+``` sudo apt remove telnet ```
+
+![](images/removing-telnet.PNG)
+
+## isolation
